@@ -3,8 +3,10 @@ FROM ubuntu:20.04
 RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y wget libpcre3-dev build-essential libssl-dev zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
-
-RUN apt --yes --force-yes update && apt --yes --force-yes install docker docker-compose git
+    
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/New_York
+RUN apt-get install -y docker docker-compose git tzdata
 
 WORKDIR /opt
 
