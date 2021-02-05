@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y wget libpcre3-dev build-essential libssl-dev zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt update && apt install docker docker-compose git
+RUN apt --yes --force-yes update && apt --yes --force-yes install docker docker-compose git
 
 WORKDIR /opt
 
