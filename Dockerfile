@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y wget libpcre3-dev build-essential libssl-dev zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt update && sudo apt install docker docker-compose git
+RUN apt update && apt install docker docker-compose git
 
 WORKDIR /opt
 
@@ -21,6 +21,6 @@ WORKDIR /
 
 EXPOSE 443
 
-RUN sudo ./init-certificate.sh
+RUN ./init-certificate.sh
 
 CMD ["/opt/nginx/sbin/nginx", "-c", "/etc/nginx/conf.d/nginx.conf", "-g", "daemon off;"]
